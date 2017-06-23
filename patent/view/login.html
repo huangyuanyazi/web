@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>专利查询登录</title>
+</head>
+<body>
+    <div id="app" class="c-login">
+        <div class="c-form">
+            <div class="c-form-title">专利查询系统</div>
+            <div class="c-error"></div>
+            <div class="c-form-content" @keyup.enter="login">
+                <el-form ref="form" :model="user" label-width="80px">
+                    <el-form-item label="用户名">
+                        <el-input v-model="user.username"></el-input>
+                    </el-form-item>
+                    <el-form-item label="手机号码">
+                        <el-input v-model="user.mobile"></el-input>
+                    </el-form-item>
+                    <el-form-item>
+                        <el-button type="primary" @click="login">立即查询</el-button>
+                    </el-form-item>
+                </el-form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

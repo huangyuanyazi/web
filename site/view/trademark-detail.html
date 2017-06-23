@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>商标详情-淘权网</title>
+</head>
+<body>
+    {{include "./common/header"}}
+    <div class="c-main" id="trademark-detail">
+        <div class="c-crumbsNav">
+            <div class="container">
+                <li class="c-crumbsNav-list">
+                    <a href="/trademark">商标转让</a>
+                </li>
+                <li>&gt;</li>
+                <li class="c-crumbsNav-list">
+                    <a href="/trademark?item_class_id={{trademarkDetails.item_class_id}}">{{trademarkDetails.item_class_id | valueIDQueryName trademarkClassesTree}}</a>
+                </li>
+                <li>&gt;</li>
+                <li class="c-crumbsNav-list">{{trademarkDetails.name}}</li>
+            </div>
+        </div>
+        <div class="c-item-information">
+            <div class="container">
+                <div class="c-preview-wrap" id="preview-wrap">
+                    <ul class="c-preview-bigbox">
+                        <li class="c-preview-list"><img src="http://static.taoquanw.com/upload/shop/common/05337302323403315_360.png" alt=""></li>
+                        <li class="c-preview-list"><img src="http://static.taoquanw.com/upload/shop/common/05337302323403315_360.png" alt=""></li>
+                        <li class="c-preview-list"><img src="http://static.taoquanw.com/upload/shop/common/05337302323403315_360.png" alt=""></li>
+                        <li class="c-preview-list"><img src="http://static.taoquanw.com/upload/shop/common/05337302323403315_360.png" alt=""></li>
+                    </ul>
+                    <div class="c-preview-box">
+                        <div class="c-preview-arrow">
+                            <span></span>
+                            <span></span>
+                        </div>
+                        <ul class="c-preview-thumbnailbox">
+                            <li class="c-thumbnailbox-list">
+                                <img src="http://static.taoquanw.com/upload/shop/common/05337302323403315_360.png" alt="">
+                            </li>
+                            <li class="c-thumbnailbox-list">
+                                <img src="http://static.taoquanw.com/upload/shop/common/05337302323403315_360.png" alt="">
+                            </li>
+                            <li class="c-thumbnailbox-list">
+                                <img src="http://static.taoquanw.com/upload/shop/common/05337302323403315_360.png" alt=""> 
+                            </li>
+                            <li class="c-thumbnailbox-list">
+                                <img src="http://static.taoquanw.com/upload/shop/common/05337302323403315_360.png" alt="">  
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="c-itemInfo-wrap">
+                    
+                    <div class="c-itemInfo-top">
+                        <h3 id="c-itemInfo-h3" title="{{trademarkDetails.description}}">{{trademarkDetails.name}}</h3>
+                        <p class="c-item-price" title="{{trademarkDetails.price}}">
+                            <b>价格：</b>
+                            <span class="hot">&yen;{{trademarkDetails.price}}</span>
+                        </p>
+                        <p title="{{trademarkDetails.attributes | valueLabelQuery 'type' trademarkClasses}}">
+                            <b>商标类型：</b>
+                            <span>{{trademarkDetails.attributes | valueLabelQuery 'type' trademarkClasses}}</span>
+                        </p>
+                        <p title="{{trademarkDetails.attributes | valueQuery 'sn'}}">
+                            <b>商标(申请)号：</b>
+                            <span>{{trademarkDetails.attributes | valueQuery 'sn'}}</span>
+                        </p>
+                        <p title="商标转让 &gt; {{trademarkDetails.item_class_id |valueIDQueryName trademarkClassesTree}}">
+                            <b>行业分类：</b>
+                            <span>商标转让 &gt;{{trademarkDetails.item_class_id |valueIDQueryName trademarkClassesTree}}</span>
+                        </p>
+                        <!-- <p title="{{trademarkDetails.attributes}}">
+                            <b>商标状态：</b>
+                            <span>{{trademarkDetails.attributes}}</span>
+                        </p> -->
+                        <p title="{{trademarkDetails.attributes | valueQuery 'regDate'| dateFormat 'YYYY-MM-DD'}}">
+                            <b>商标注册日期：</b>
+                            <span>{{trademarkDetails.attributes | valueQuery 'regDate'| dateFormat 'YYYY-MM-DD'}}</span>
+                        </p>
+                        <p class="c-item-keyword" title="{{trademarkDetails.attributes | valueQuery 'product'}}">
+                            <b>关键词：</b>
+                            <span>{{trademarkDetails.attributes | valueQuery 'product'}}</span>
+                        </p>
+                    </div>
+                    <div class="c-itemInfo-down">
+                        <div class="c-itemInfo-title">
+                            <h3>购买咨询</h3>
+                            <span>（如果点击后无法打开聊天软件，请尝试更换浏览器）</span>
+                        </div>
+                        <div class="c-itemInfo-content">
+                            <a href="http://wpa.qq.com/msgrd?v=3&uin=2853076070&site=qq&menu=yes" target="_blank">
+                                <b>QQ：</b>
+                                <span class="c-itemInfo-qq">2853076070</span>
+                            </a>
+                            <a href="http://amos.im.alisoft.com/msg.aw?v=2&uid=上善若水4158&site=cntaobao&s=1&charset=utf-8" target="_blank">
+                                <b>旺旺：</b>
+                                <span class="c-itemInfo-ww">上善若水4158</span>
+                            </a>
+                            <a href="javascript:;">
+                                <b>电话：</b>
+                                <span>12345678901</span>
+                            </a>  
+                        </div>
+                    </div>
+                </div>
+                <div class="c-extra-wrap">
+                    <h3>看了又看</h3>
+                    <ul class="c-extra-box">
+                    {{each trademarkBrowsed}}
+                         <li class="c-extra-list">
+                            <a href="/trademark/{{$value.id}}" >
+                                <img src="http://static.taoquanw.com/upload/shop/common/05337302323403315_360.png" alt="">
+                            </a>
+                            <p class="c-extra-price">&yen;{{$value.price}}</p>
+                            <a href="/trademark/{{$value.id}}" class="c-extra-des">{{$value.name}}</a>
+                        </li>
+                    {{/each}}
+                        <!-- <li class="c-extra-list">
+                            <a href="" ><img src="http://static.taoquanw.com/upload/shop/common/05337302323403315_360.png" alt=""></a>
+                            <p class="c-extra-price">&yen;1850</p>
+                            <a href="" class="c-extra-des">套筒调节的园林道路修边装置及其使用方法</a>
+                        </li>
+                        <li class="c-extra-list">
+                            <a href="" ><img src="http://static.taoquanw.com/upload/shop/common/05337302323403315_360.png" alt=""></a>
+                            <p class="c-extra-price">&yen;1850.00</p>
+                            <a href="" class="c-extra-des">套筒调节的园林道路修边装置及其使用方法</a>
+                        </li> -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="c-item-banners">
+            <div class="container">
+                <img src="http://static.taoquanw.com/dist/img/slogan-02a9d960c4.png" alt="">
+            </div>
+        </div>
+        <div class="c-item-description">
+            <div class="container">
+                <div class="c-item-left">
+                    <div class="c-item-title">
+                        <h3>最新上架</h3>
+                    </div>
+                    <ul class="c-hot-box">
+                        {{each trademarkNewList}}
+                        <li class="c-hot-list">
+                            <a href="/trademark/{{$value.id}}" >
+                                <img src="http://static.taoquanw.com/upload/shop/common/05337302323403315_360.png" alt="">
+                            </a>
+                            <a href="/trademark/{{$value.id}}" class="c-hot-des">{{$value.name}}</a>
+                            <p class="c-hot-price">&yen;{{$value.price}}</p>
+                        </li>
+                        {{/each}}
+                        <!-- <li class="c-hot-list">
+                            <a href="" ><img src="http://static.taoquanw.com/upload/shop/common/05337302323403315_360.png" alt=""></a>
+                            <a href="" class="c-hot-des">套筒调节的园林道路修边装置及其使用方法</a>
+                            <p class="c-hot-price">&yen;1850.00</p>
+                        </li>
+                        <li class="c-hot-list">
+                            <a href="" ><img src="http://static.taoquanw.com/upload/shop/common/05337302323403315_360.png" alt=""></a>
+                            <a href="" class="c-hot-des">套筒调节的园林道路修边装置及其使用方法</a>
+                            <p class="c-hot-price">&yen;1850.00</p>
+                        </li>
+                        <li class="c-hot-list">
+                            <a href="" ><img src="http://static.taoquanw.com/upload/shop/common/05337302323403315_360.png" alt=""></a>
+                            <a href="" class="c-hot-des">套筒调节的园林道路修边装置及其使用方法</a>
+                            <p class="c-hot-price">&yen;1850.00</p>
+                        </li> -->
+                    </ul>
+                </div>
+                <div class="c-item-right" id="item-right">
+                    <div class="c-item-submenu">
+                        <a href="#item-introduce" class="active">商品介绍</a>
+                        <a href="#item-process">转让流程</a>
+                        <a href="#item-information">过户资料</a>
+                    </div>
+                    <div class="c-item-contentList c-item-introduce" id="item-introduce">
+                        <div class="c-item-content">
+                            <ul class="c-item-box">
+                                <li class="c-item-item" title="{{trademarkDetails.price}}">
+                                    价格：&yen;{{trademarkDetails.price}} 
+                                </li>
+                                <li class="c-item-item" title="{{trademarkDetails.attributes | valueQuery 'sn'}}">
+                                    商标(申请)号：{{trademarkDetails.attributes | valueQuery 'sn'}}
+                                </li>
+                                <li class="c-item-item" title="商标转让 &gt; {{trademarkDetails.item_class_id |valueIDQueryName trademarkClassesTree}}">
+                                    行业分类：商标转让 &gt; {{trademarkDetails.item_class_id |valueIDQueryName trademarkClassesTree}}
+                                </li>
+                                <li class="c-item-item" title="{{trademarkDetails.attributes | valueLabelQuery 'type' trademarkClasses}}">
+                                    商标类型：{{trademarkDetails.attributes | valueLabelQuery 'type' trademarkClasses}}
+                                </li>
+                                <li class="c-item-item" title="{{trademarkDetails.attributes | valueQuery 'regDate'| dateFormat 'YYYY-MM-DD'}}">
+                                    商标注册日期：{{trademarkDetails.attributes | valueQuery 'regDate'| dateFormat 'YYYY-MM-DD'}}
+                                </li>
+                                <li class="c-item-item" title="{{trademarkDetails.attributes | valueQuery 'product'}}">
+                                    关键词：{{trademarkDetails.attributes | valueQuery 'product'}}
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="c-item-contentList c-item-process" id="item-process">
+                        <div class="c-item-title">
+                            <h3>转让流程</h3>
+                        </div>
+                        <div class="c-item-content">
+                            <p>买家选商标>>下单付款>>平台办理官方过户手续>>支付卖方交易款>>完成</p>
+                        </div>
+                    </div>
+                    <div class="c-item-contentList c-item-information" id="item-information">
+                        <div class="c-item-title">
+                            <h3>过户资料</h3>
+                        </div>
+                        <div class="c-item-content">
+                            <p>买家选商标>>下单付款>>平台办理官方过户手续>>支付卖方交易款>>完成</p>
+                        </div>
+                    </div>
+                    <div class="c-item-recommend">
+                        <div class="c-item-title">
+                            <h3>推荐商品</h3>
+                        </div>
+                        <div class="c-item-content">
+                            <ul class="c-hot-box">
+                                {{each trademarkHotList}}
+                                <li class="c-hot-list">
+                                    <a href="/trademark/{{$value.id}}" >
+                                        <img src="http://static.taoquanw.com/upload/shop/common/05337302323403315_360.png" alt="">
+                                    </a>
+                                    <a href="/trademark/{{$value.id}}" class="c-hot-des">{{$value.name}}</a>
+                                    <p class="c-hot-price">&yen;{{$value.price}}</p>
+                                </li>
+                                {{/each}}
+                                <!-- <li class="c-hot-list">
+                                    <a href="" ><img src="http://static.taoquanw.com/upload/shop/common/05337302323403315_360.png" alt=""></a>
+                                    <a href="" class="c-hot-des">套筒调节的园林道路修边装置及其使用方法</a>
+                                    <p class="c-hot-price">&yen;1850.00</p>
+                                </li>
+                                <li class="c-hot-list">
+                                    <a href="" ><img src="http://static.taoquanw.com/upload/shop/common/05337302323403315_360.png" alt=""></a>
+                                    <a href="" class="c-hot-des">套筒调节的园林道路修边装置及其使用方法</a>
+                                    <p class="c-hot-price">&yen;1850.00</p>
+                                </li>
+                                <li class="c-hot-list">
+                                    <a href="" ><img src="http://static.taoquanw.com/upload/shop/common/05337302323403315_360.png" alt=""></a>
+                                    <a href="" class="c-hot-des">套筒调节的园林道路修边装置及其使用方法</a>
+                                    <p class="c-hot-price">&yen;1850.00</p>
+                                </li> -->
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <tq-gotop></tq-gotop>
+    </div>
+    {{include "./common/footer"}}
+</body>
+</html>

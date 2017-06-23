@@ -1,0 +1,151 @@
+@bootstrap-path: "../../../node_modules/bootstrap/less";
+
+// Core variables and mixins
+@import "variable.less";
+@import "@{bootstrap-path}/mixins.less";
+
+// Reset and dependencies
+@import "@{bootstrap-path}/normalize.less";
+@import "@{bootstrap-path}/print.less";
+@import "@{bootstrap-path}/glyphicons.less";
+
+// Core CSS
+@import "@{bootstrap-path}/scaffolding.less";
+@import "@{bootstrap-path}/type.less";
+@import "@{bootstrap-path}/code.less";
+@import "@{bootstrap-path}/grid.less";
+@import "@{bootstrap-path}/tables.less";
+@import "@{bootstrap-path}/forms.less";
+@import "@{bootstrap-path}/buttons.less";
+
+// Components
+@import "@{bootstrap-path}/component-animations.less";
+@import "@{bootstrap-path}/dropdowns.less";
+@import "@{bootstrap-path}/button-groups.less";
+@import "@{bootstrap-path}/input-groups.less";
+@import "@{bootstrap-path}/navs.less";
+@import "@{bootstrap-path}/navbar.less";
+@import "@{bootstrap-path}/breadcrumbs.less";
+@import "@{bootstrap-path}/pagination.less";
+@import "@{bootstrap-path}/pager.less";
+@import "@{bootstrap-path}/labels.less";
+@import "@{bootstrap-path}/badges.less";
+@import "@{bootstrap-path}/jumbotron.less";
+@import "@{bootstrap-path}/thumbnails.less";
+@import "@{bootstrap-path}/alerts.less";
+@import "@{bootstrap-path}/progress-bars.less";
+@import "@{bootstrap-path}/media.less";
+@import "@{bootstrap-path}/list-group.less";
+@import "@{bootstrap-path}/panels.less";
+@import "@{bootstrap-path}/responsive-embed.less";
+@import "@{bootstrap-path}/wells.less";
+@import "@{bootstrap-path}/close.less";
+
+// Components w/ JavaScript
+@import "@{bootstrap-path}/modals.less";
+@import "@{bootstrap-path}/tooltip.less";
+@import "@{bootstrap-path}/popovers.less";
+@import "@{bootstrap-path}/carousel.less";
+
+// Utility classes
+@import "@{bootstrap-path}/utilities.less";
+@import "@{bootstrap-path}/responsive-utilities.less";
+
+//font icon
+@import "style.css";
+
+//初始化样式
+// @import "public.css";
+// Taoquan theme
+.c-top {
+	height: 30px;
+	line-height: 30px;
+	background-color: #F3F3F3;
+	font-size: 12px;
+	.c-site-link {
+		a {
+			margin-right: 14px;
+		}
+	}
+	.c-user-link {
+		text-align: right;
+		a {
+			margin-left: 14px;
+		}
+	}
+}
+.c-header {
+	height: 70px; 
+	background-color: #e54c53;
+	.c-logo {
+		a {
+			float: left; 
+			width: 170px; 
+			height: 60px; 
+			margin-top: 10px; 
+			background: url("../image/logo-large.png") no-repeat; 
+			background-size: 170px;
+		}
+		span {
+			float: left; 
+			height: 70px; 
+			line-height: 70px; 
+			margin-left: 20px; 
+			color: #FFF; 
+			font-size: 16px;
+		}
+	}
+	.c-link {
+		text-align: right;
+		a {
+			height: 70px; 
+			line-height: 70px; 
+			padding: 0 16px; 
+			display: inline-block; 
+			color: #FFF;
+		}
+		a:hover, a.c-current {
+			background-color: #e53942; 
+		}
+	}
+}
+.c-main {
+	background-color: #FFF; 
+	padding-bottom: 20px;
+}
+.c-footer {
+	height: 100px; 
+	text-align: center; 
+	background-color: #EEE;
+	.c-link {
+		margin-top: 24px;
+		a {
+			margin: 0 6px;
+		}
+	}
+	.c-copyright { 
+		margin-top: 10px;
+	}
+}
+body,ul,li,p,h1,h2,h3,h4,h5,h6,img,br,hr,table,tr,td,dl,dt,dd,form,input,button {
+	margin: 0;
+	padding: 0;
+}
+
+ul,li{
+	list-style-type: none;
+}
+img,input{
+	border: none;
+}
+img{
+	max-width: 100%;
+	max-height: 100%;
+}
+a,a:focus,a:hover{
+	outline: none;
+	text-decoration: none;
+}
+textarea:focus,input:focus ,button:focus,select,select:focus,option,option:focus{
+	outline: none;
+}

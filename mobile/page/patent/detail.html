@@ -1,0 +1,80 @@
+<!-- Views-->
+<div class="navbar">
+    <div class="navbar-inner">
+        <div class="left">
+            <a href="page/patent/index.html" class="link icon-only"><i class="icon icon-back"></i></a>
+        </div>
+        <div class="center">
+            专利详情
+        </div>
+        <div class="right">
+            <a href="javascript:void(0)" id="patentDetailShare">分享</a>
+        </div>
+    </div>
+</div>
+
+<div class="page no-toolbar" data-page="patentDetail" id='patentDetail'>
+    <div class="page-content" id='patentDetailContent'>
+        <script id='patentDetailTemplate' type='text/template7'>
+            {{#patent}}
+            <div class="content-block">
+                <div class="card">
+                    <div class="card-header"><span>{{name}}</span>
+                        <span>{{id}}</span>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-content-inner">
+                            <p>专利号：{{json attributes key="sn"}}
+                            </p>
+                            <p>{{json attributes key="type"}}&nbsp; {{json attributes key="status"}}&nbsp;&nbsp; 截止{{json attributes key="deadline"}}
+                            </p>
+                            <p>
+                                {{joinString keywords delimiter=","}}
+                            </p>
+                        </div>
+                    </div>
+                    <!--<div class="card-footer"></div>-->
+                </div>
+            </div>
+            <div class="content-block">
+                <div class="card">
+                    <div class="card-header">
+                        专利详情
+                    </div>
+                    <div class="card-content">
+                        <div class="card-content-inner">
+                            {{description}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--<div class="content-block">-->
+            <!--<div class="card">-->
+            <!--<div class="card-header">-->
+            <!--专利发布人-->
+            <!--</div>-->
+            <!--<div class="card-content">-->
+            <!--<div class="card-content-inner">-->
+            <!--<p>{{company}}</p>-->
+            <!--<p><a href="page/patent/seller_patent.html?company={{company}}" class="">他还有{{patent_count}}个专利正在转让-->
+            <!--&gt;</a></p>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!---->
+            <!--</div>-->
+            <!--</div>-->
+            <!--
+            <p class='c-p-tm-call' data-sellerTel={{company}}><a id="patentDetailBottomButton" href="#" class="button button-fill color-red button-round button-big">联系卖家</a></p>
+        -->
+            <input style="display: none" value={{name}} id="patentCustomerServiceInfo">
+            {{/patent}}
+        </script>
+
+    </div>
+    <!--<p class='c-p-tm-call'><a id="patentDetailBottomButton" href="#"-->
+    <!--class="button button-fill color-red button-round button-big">联系卖家</a></p>-->
+    <p class="buttons-row c-patent-trademark-call">
+        <a href="#" class="button button-big button-fill" id="patentCustomerServiceButton">联系客服</a>
+        <a href="#" class="button button-big button-fill color-red" id="patentOpenAppButton">打开应用</a>
+    </p>
+</div>

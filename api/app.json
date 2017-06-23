@@ -1,0 +1,20 @@
+{
+  "apps": [
+    {
+      "name": "api",
+      "script": "/www/web/api/app.js",
+      "watch": ["/www/web/api", "/www/web/config", "/www/web/libs"],
+      "watch_options": {
+        "usePolling": true
+      },
+      "ignore_watch" : ["node_modules", "client", "logs", ".git", ".idea"],
+      "max_memory_restart": "100M",
+      "log_date_format"  : "YYYY-MM-DD HH:mm:SS",
+      "error_file" : "/www/web/logs/api-err.log",
+      "pid_file"   : "/www/web/logs/api.pid",
+      "env": {
+        "NODE_ENV": "prod"
+      }
+    }
+  ]
+}

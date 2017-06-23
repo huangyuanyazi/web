@@ -1,0 +1,113 @@
+.c-navbar-after:after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: auto;
+  top: auto;
+  height: 1px !important;
+  width: 100%;
+  background-color: #c4c4c4;
+  display: block;
+  z-index: 15;
+}
+
+.navbar:after {
+  height: 0px;
+}
+
+.c-filter {
+  display: -webkit-flex;
+  flex-direction: row;
+  z-index:300;
+  position: fixed;
+  width: 100%;
+  top: 44px;
+  background: #f7f7f8;
+  height: 40px;
+}
+
+.c-filter:after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: auto;
+  top: auto;
+  height: 1px;
+  width: 100%;
+  background-color: #c4c4c4;
+  display: block;
+  z-index: 15;
+}
+
+.c-filter div {
+  display: flex;
+  flex: 1;
+  align-items: center; //交叉轴对齐方式，主轴为水平则交叉轴为垂直
+  justify-content: center; //主轴对齐方式，主轴默认水平
+}
+
+//.c-patentType ,.c-patentStatus,.c-priceRange{
+//  border-right:1px solid #9d9d9d;
+////}
+.c-filter div span {
+  background: url("../image/on_1.png") no-repeat right;
+  padding-right: 15px;
+}
+
+.c-patentType-eject,.c-patentStatus-eject,.c-priceRange-eject,.c-sortMethod-eject {
+  position: fixed;
+  background: #ffffff;
+  width: 100%;
+  top: -100%;
+  -webkit-transition-duration: 0.4s;
+  z-index: 20;
+  padding:0;
+}
+
+.c-layer-show84 {
+  top: 84px;
+}
+.c-layer-show124 {
+  top: 124px;
+}
+
+.c-layer-show84:after {
+  position: fixed;
+  content: "";
+  width: 100%;
+  height: 100%;
+  display: block;
+  background: rgba(0, 0, 0, 0.2);
+}
+.c-layer-show124:after {
+  position: fixed;
+  content: "";
+  width: 100%;
+  height: 100%;
+  display: block;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+//.no-choose{
+//  background: url("../image/on_1.png") no-repeat right center;
+//  background-size: 0.75em;
+//  padding-right: 15px;
+//}
+
+.c-filter .chosen span{
+  background: url("../image/on_2.png") no-repeat right center;
+  color: #3cb9f3;
+}
+
+.c-margin0{
+  margin:0;
+}
+
+.c-patentType-eject .col-50{
+  text-align: center;
+}
+.c-patentType-eject .row{
+  margin:30px;
+}

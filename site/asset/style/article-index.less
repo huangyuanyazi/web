@@ -1,0 +1,214 @@
+@hover-color:#E54C53;
+
+.c-article-index {
+	.c-content {
+		float: left;
+		width: 73%;
+		background: #FFF;	
+		.c-content-banners{
+			width: 100%;
+			height: 400px;
+			margin-top: 30px;
+		}
+		.c-article{
+            width: 100%;
+            margin-top: 30px;
+            .c-article-tit{
+                height: 40px;
+                line-height: 40px;
+                width: 100%;
+                border-bottom: 3px solid @hover-color;
+                .c-article-nav{
+                    color: #333;
+                    font-size: 14px;
+                    display: block;
+                    height: 100%;
+                    line-height: 40px;
+                    padding: 0 20px;
+                    float: left;
+                    margin: 0 10px 0 0 ;
+                    cursor: pointer;
+                    &:hover{
+                        color: @hover-color;
+                        text-decoration: none;
+                    }
+                }
+                .c-article-nav.active{
+                    background: @hover-color;
+                    color: #fff;
+                }
+            }
+            .c-article-mian{
+                padding-top: 20px;
+                .c-article-list{
+                    display: none;
+                    .c-article-item{
+                        // list-style: none;
+                        // padding: 5px 0;
+                        // margin: 5px 0;
+                        padding: 18px 0 20px;
+                        border-bottom: 1px solid #e5e5e5;
+                        // overflow: hidden;
+                        // position: relative;
+                        .c-article-title{
+                            font-size: 20px;
+                            font-weight: 700;
+                            color: #333;
+                        }
+                        .c-article-detail{
+                            margin-top: 15px;
+                            width: 100%;
+                            a{
+                                width: 130px;
+                                height: 87px;
+                                margin-right: 10px;
+                                float: left;
+                                img{
+                                    width: 100%;
+                                    height: 100%;
+                                }
+                            }
+                            p{
+                                font-size: 15px;
+                                line-height: 26px;
+
+                            }
+                            p:after{
+                                content: "";
+                                display: block;
+                                clear: both;
+                            }
+                        }
+                        
+                        .c-article-label{
+                            // width: 100%;
+                            // height: 30px;
+                            margin-top: 12px;
+                            overflow: hidden;
+                            span{
+                                float: left;
+                                margin-right: 20px;
+                                line-height: 30px;
+                                color: #999;
+                            }
+                            div{
+                                float: right;
+                                span{
+                                    float: left;
+                                    line-height: 30px;
+                                    margin: 0 0 0 20px;
+                                }
+                                .c-article-pugin{
+                                	float: left;
+                                    line-height: 30px;
+                                    margin: 0 0 0 20px;
+                                    color: #333;
+                                }
+                            }
+                        }
+                        
+                    }
+                    .c-article-item:after{
+                        content: "";
+                        display: block;
+                        clear: both;
+                    }
+                }
+                .c-article-list:first-child{
+                    display: block;
+                }
+            }
+        }	
+	}
+	
+	.c-side{
+
+		width: 25%;
+		// height: 500px;
+        margin-top: 30px; 
+		float: right;
+        padding-bottom: 20px;
+        .c-side-recommend{
+            width: 100%;
+            .c-side-title{
+                width: 100%;
+                height: 40px;
+                border-bottom: 1px solid #ddd;
+                .c-side-h3{
+                    height: 100%;
+                    line-height: 39px;
+                    font-size: 14px;
+                    font-weight: 400;
+                    // padding-left: 1em;
+                }
+            }
+            .c-side-main{
+                width: 100%;
+                .c-side-list{
+                    width: 100%;
+                    margin-top: 10px;
+                    .c-side-item{
+                        display: block;
+                        width: 100%;
+                        overflow: hidden;
+                        padding: 5px;
+                        color: #999;
+                        img{
+                            display: block;
+                            width: 70px;
+                            height: 70px;
+                            float: left;
+                        }
+                        .c-side-right{
+                            width: 100%;
+                            // margin-left: -80px;
+                            padding-left: 90px;
+                            .c-side-tit{
+                                color: #333;
+                                height: 50px;
+                                overflow: hidden;
+                                line-height: 25px;
+                            }
+                            .c-side-laber{
+                                line-height: 20px;
+                                height: 20px;
+                                font-size: 12px;
+                                .c-side-keywords{
+                                    float: left;
+                                }
+                                .c-side-timer{
+                                    float: right;
+                                }
+                            }
+                        }
+                    }
+                    .c-side-item:hover{
+                        background: #eee;
+                    }
+                }
+            }
+        }
+        .c-side-bannerBox{
+            margin-top: 30px;
+            .c-side-title{
+                width: 100%;
+                height: 40px;
+                .c-side-h3{
+                    height: 100%;
+                    line-height: 40px;
+                    font-size: 14px;
+                    font-weight: 400;
+                    // padding-left: 1em;
+                }
+            }
+            .c-side-banner{
+                width: 100%;
+                height: 200px;
+            }
+        }
+        
+	} 
+}
+.ql-snow .ql-tooltip[data-mode=link]::before {
+  content: "链接：";
+}

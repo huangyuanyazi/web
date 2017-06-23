@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>文章列表-淘权网</title>
+</head>
+<body>
+    {{include "./common/header"}}
+    <div class="c-main c-article-index">
+        <div class="container">
+            <div class="c-content" id="c-content">
+                <div class="c-content-banners">
+                <!-- 轮播图 -->
+                    <tq-banner v-bind:auto-play-time="autoPlayTime" v-bind:is-msg-use="isMsgUse" v-bind:is-arrow-use="isArrowUse"  v-bind:is-switch-use="isSwitchUse" v-bind:slide-lists="slideLists" v-bind:img-hover="imgHover"></tq-banner>
+                </div>
+                <div class="c-article" id="c-news">
+                    <div class="c-article-tit">
+                            <a href="/article" class="c-article-nav">全部</a>
+                        {{each articleNav value i}}
+                            <a href="/article?article_category_id={{value.id}}" class="c-article-nav">{{value.name}}</a>
+                        {{/each}}
+                                
+                    </div>
+                    <div class="c-article-mian">
+                        <ul class="c-article-list" >
+                            {{each articleList val j}}
+                            <li class="c-article-item" >
+                                <a class="c-article-title" href="/article/{{val.id}}">{{val.title}}</a>
+                                <div class="c-article-detail">
+                                    <a href="/article/{{val.id}}">
+                                        <img src="" alt="">
+                                    </a>
+                                    <p>{{val.content}}</p>
+                                </div>
+                                <div class="c-article-label">
+                                    <span>{{val.created_at| dateFormat 'YYYY-MM-DD HH:mm'}}</span>
+                                    <span>{{val.keywords}}</span>
+                                    <!-- <div>
+                                        <a class="c-article-pugin" href="./article/{{j+1}}#c-comment-wrapper">评论</a>
+                                        <span>|</span>
+                                        <a class="c-article-pugin" href="javascript:;">分享</a>
+                                    </div> -->                                    
+                                </div>
+                            </li>
+                            {{/each}}
+                        </ul>
+                    </div>
+                </div>
+                {{@pagination}}
+                <tq-gotop></tq-gotop>
+            </div>
+            <div class="c-side" id="c-side">
+                <div class="c-side-recommend">
+                    <div class="c-side-title">
+                        <h3 class="c-side-h3">推荐文章</h3>
+                    </div>
+                    <ul class="c-side-main">
+                    {{each articleRecommend}}
+                        <li class="c-side-list">
+                            <a href="/article/{{$value.id}}" class="c-side-item">
+                                <img src="http://lorempixel.com/640/480/people" alt="">
+                                <div class="c-side-right">
+                                    <p class="c-side-tit">{{$value.title}}</p>
+                                    <p class="c-side-laber">
+                                        <span class="c-side-keywords">{{$value.keywords}}</span>
+                                        <span class="c-side-timer">{{$value.created_at| dateFormat 'YYYY-MM-DD'}}</span>
+                                    </p>
+                                </div>
+                            </a>
+                        </li>
+                    {{/each}}
+                    </ul>
+                </div>
+                <div class="c-side-bannerBox">
+                    <div class="c-side-title">
+                        <h3 class="c-side-h3">精选文章</h3>
+                    </div>
+                    <div class="c-side-banner">
+                        <!-- 轮播图 -->
+                        <tq-banner v-bind:auto-play-time="autoPlayTime" v-bind:is-msg-use="isMsgUse" v-bind:is-arrow-use="isArrowUse"  v-bind:is-switch-use="isSwitchUse" v-bind:is-switch-style="isSwitchStyle" v-bind:slide-lists="slideLists" ></tq-banner>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{include "./common/footer"}}
+    
+</body>
+</html>

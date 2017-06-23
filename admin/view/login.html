@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>淘权网后台管理系统</title>
+</head>
+<body>
+    <div id="app" class="c-login">
+        <div class="c-form">
+            <div class="c-form-title">{{title}}淘权网后台管理系统</div>
+            <div class="c-error">
+                <tq-error-message :errors="errors"></tq-error-message>
+            </div>
+            <div class="c-form-content" @keyup.enter="login">
+                <el-form ref="form" :model="user" label-width="60px">
+                    <el-form-item label="账号">
+                        <el-input v-model="user.identity"></el-input>
+                    </el-form-item>
+                    <el-form-item label="密码">
+                        <el-input type="password" v-model="user.password"></el-input>
+                    </el-form-item>
+                    <el-form-item>
+                        <el-button type="primary" @click="login">立即登录</el-button>
+                    </el-form-item>
+                </el-form>
+                <!--
+                <form action="/admin/login" method="post">
+                    <dl>
+                        <dt>用户名</dt>
+                        <dd><input name="identity" type="text"></dd>
+                        <dt>密码</dt>
+                        <dd><input name="password" type="password"></dd>
+                        <dd><input type="submit" value="登录"></dd>
+                    </dl>
+                </form>
+                -->
+            </div>
+        </div>
+    </div>
+</body>
+</html>

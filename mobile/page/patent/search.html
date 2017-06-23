@@ -1,0 +1,57 @@
+<div class="page no-navbar no-toolbar" data-page="patentSearch" id='patentSearch'>
+	<div class="page-content">
+		<form class="searchbar searchbar-init">
+			<div class="searchbar-input">
+				<input type="search" placeholder="请输入关键字" id="patentAutocompleteInput" onkeypress="" autocomplete="off">
+			</div>
+			<a href="page/patent/index.html" class="searchbar-cancel">取消</a>
+		</form>
+		
+		<div class="card" id="hotSearch">
+			<div class="card-header">热门搜索</div>
+			<div class="card-content">
+				<div class="card-content-inner">
+					<!--template加载数据-->
+				</div>
+			</div>
+		</div>
+		<div class="card" id="historySearch">
+			<div class="card-header">
+				历史搜索
+			</div>
+			<div class="card-content">
+				<div class="list-block">
+					<ul>
+					
+					</ul>
+				</div>
+			</div>
+			<div class="card-footer">
+				<span></span>
+				<span id="historyCleaner">清除历史记录</span>
+				<span></span>
+			</div>
+		</div>
+	</div>
+	<script id="hotSearchTemplate" type="text/template7">
+		{{#each hotSearchList}}
+		<a href='page/patent/index.html?hotSearch={{itemId}}'>
+			<div class="chip">
+				<div class="chip-label">{{hotSearchItem}}</div>
+			</div>
+		</a>
+		{{/each}}
+	</script>
+	<!--page_search_history template-->
+	<script id="historySearchTemplate" type="text/template7">
+		{{#each historySearchList}}
+		<li>
+			<a href="page/patent/index.html?historySearch={{historyItem}}" class="item-link item-content">
+				<div class="item-inner">
+					<div class="item-title">{{historyItem}}</div>
+				</div>
+			</a>
+		</li>
+		{{/each}}
+	</script>
+</div>

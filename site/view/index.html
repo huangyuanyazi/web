@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>淘权网</title>
+    <link rel="Shortcut Icon" href="http://static.taoquanw.com/favicon.ico">
+</head>
+<body>
+
+    {{include "./common/header.html"}}
+    <div class="c-main c-index" id="main">
+        
+        <div id="mainBanner" class="c-banner j-banner">
+             <!-- 轮播图 -->
+            <tq-banner v-bind:auto-play-time="autoPlayTime" v-bind:is-msg-use="isMsgUse" v-bind:is-arrow-use="isArrowUse"  v-bind:is-switch-use="isSwitchUse" v-bind:slide-lists="slideLists" v-bind:img-hover="imgHover">
+            </tq-banner>
+        </div>
+
+        <div class="c-search">
+            <div class="container">
+                <h1 class="c-search-tit">海量资源，快速查找</h1>
+                <p class="c-search-words">免费帮您寻找更便宜的知产资源</p>
+                <tq-search v-bind:action="action" v-bind:action-list="actionList" v-bind:search-address="searchAddress" v-bind:is-need-box="isNeedBox" v-bind:is-need-hot="isNeedHot" v-bind:is-need-new="isNeedNew" v-bind:opt-list="optList" >
+                </tq-search>
+                
+            </div>
+            <!-- <div class="c-askbuy">
+                <h2 class="c-askbuy-tit">无限商机，尽在咫尺</h2>
+                <p class="c-askbuy-words">真实有效的知产求购需求</p>
+                <div class="c-askbuy-content">
+                    <ul class="c-askbuy-list">
+                        <li class="c-askbuy-item">
+                            <a href="">
+                                <p class="c-askbuy-type">求购：</p>
+                                <p class="c-askbuy-mian">保温水箱，4个实用或一个发明</p>
+                                <p class="c-askbuy-time">2个小时前发布</p>
+                            </a>
+                        </li>
+                        <li class="c-askbuy-item">
+                            <a href="">
+                                <p class="c-askbuy-type">求购：</p>
+                                <p class="c-askbuy-mian">保温水箱，4个实用或一个发明</p>
+                                <p class="c-askbuy-time">2个小时前发布</p>
+                            </a>
+                        </li>
+                        <li class="c-askbuy-item">
+                            <a href="">
+                                <p class="c-askbuy-type">求购：</p>
+                                <p class="c-askbuy-mian">保温水箱，4个实用或一个发明</p>
+                                <p class="c-askbuy-time">2个小时前发布</p>
+                            </a>
+                        </li>
+                        <li class="c-askbuy-item">
+                            <a href="">
+                                <p class="c-askbuy-type">求购：</p>
+                                <p class="c-askbuy-mian">保温水箱，4个实用或一个发明</p>
+                                <p class="c-askbuy-time">2个小时前发布</p>
+                            </a>
+                        </li>
+                        <li class="c-askbuy-item">
+                            <a href="">
+                                <p class="c-askbuy-type">求购：</p>
+                                <p class="c-askbuy-mian">保温水箱，4个实用或一个发明</p>
+                                <p class="c-askbuy-time">2个小时前发布</p>
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="c-askbuy-arrow">
+                        <span class="c-askbuy-left"></span>
+                        <span class="c-askbuy-right"></span>
+                    </div>
+                </div>
+            </div> --> 
+        </div>
+        <div class="c-advertisement">
+            <div class="container">
+                <img src="http://static.taoquanw.com/dist/img/slogan-02a9d960c4.png" alt="">
+            </div>
+        </div>
+        <!-- <img src="../../asset/image/banner-1.png" alt=""> -->
+        <div class="container">
+            <div class="c-patent">
+                <div class="c-patent-hot">
+                    <div class="c-patent-tit">
+                        <h2 class="c-patent-h2">推荐专利转让</h2>
+                        <p class="c-patent-p">一站式专利转让交易新体验</p>
+                        <a href="/patent" class="c-patent-more">更多专利+</a>
+                    </div>
+                    <div class="c-patent-content">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>关键字</th>
+                                    <th>专利名称</th>
+                                    <th>专利类型</th>
+                                    <th>专利状态</th>
+                                    <th>缴费截止日期</th>
+                                    <th>价格</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {{each patentContent}}
+                                <tr>
+                                    <td>
+                                    {{if $value.keyWords}}
+                                        <a href="/patent?keyWords=~{{$value.keyWords| valueQuery '0'}}">{{$value.keywords| valueQuery "0"}}</a>
+                                    {{else}}
+                                        <a href="/patent?keyWords=~{{$value.keyWords}}">{{$value.keywords}}</a>
+                                    {{/if}}
+                                    </td>
+                                    <td><a href="/patent/{{$value.id}}">{{$value.name}}</a></td>
+                                    <td>{{$value.attributes| valueLabelQuery 'type' patentClass}}</td>
+                                    <td>{{$value.attributes| valueLabelQuery 'status' patentClass}}</td>
+                                    <td>{{$value.attributes| valueQuery 'deadline'| dateFormat 'YYYY-MM-DD'}}</td>
+                                    <td>&yen;{{$value.price}}</td>
+                                </tr>
+                                {{/each}}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="c-patent-new">
+                    <div class="c-patent-tit">
+                        <h2 class="c-patent-h2">最新专利</h2>
+                        <a href="" class="c-patent-more">更多专利+</a>
+                    </div>
+                    <div class="c-patent-content">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    {{each patentNewHead}}
+                                        <th>{{$value}}</th>
+                                    {{/each}}
+                                    <!-- <th>发布人</th>
+                                    <th>专利名称</th>
+                                    <th>时间</th> -->
+                                </tr>
+                            </thead>
+                            <tbody>
+                            {{each patentNewContent}}
+                                <tr>
+                                    <td>{{$value.attributes| valueLabelQuery 'type' patentClass}}</td>
+                                    <td><a href="/patent/{{$value.id}}">{{$value.name}}</a></td>
+                                    <td>{{$value.attributes| valueQuery 'deadline'| dateFormat 'YYYY-MM-DD'}}</td>
+                                </tr>
+                            {{/each}}    
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="c-trademark">
+                <div class="c-trademark-hot">
+                    <div class="c-trademark-tit">
+                        <h2 class="c-trademark-h2">精选商标转让</h2>
+                        <p class="c-trademark-p">海量优质商标任你挑</p>
+                        <a href="/trademark" class="c-trademark-more">更多商标+</a>
+                    </div>
+                    <div class="c-trademark-content">
+                        <ul>
+                        {{each trademarkContent}}
+                            <li class="c-trademark-list">
+                                <a href="/trademark/{{$value.id}}" class="c-trademark-a">
+                                    <img src="http://static.taoquanw.com/upload/shop/common/05337302323403315_240.png" alt="{{$value.description}}" class="c-trademark-img">
+                                    <span class="c-trademark-price">&yen;{{$value.price}}</span>
+                                    <span class="c-trademark-span">{{$value.name}}</span>
+                                </a>
+                            </li>
+                        {{/each}}
+                        </ul>
+                    </div>
+                </div>
+                <div class="c-trademark-new">
+                    <div class="c-trademark-tit">
+                        <h2 class="c-trademark-h2">最新商标</h2>
+                        <a href="" class="c-trademark-more">更多商标+</a>
+                    </div>
+                    <div class="c-trademark-content">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                {{each trademarkNewHead}}
+                                <th>{{$value}}</th>
+                                {{/each}}
+                                    <!-- <th width="20%">发布人</th>
+                                    <th width="50%">商标名称</th>
+                                    <th width="30%">时间</th> -->
+                                </tr>
+                            </thead>
+                            <tbody> 
+                            {{each trademarkNewContent}}
+                                <tr>
+                                    <td>{{$value.attributes| valueLabelQuery 'type' trademarkClass}}</td>
+                                    <td><a href="/trademark/{{$value.id}}">{{$value.name}}</a></td>
+                                    <td>{{$value.attributes| valueQuery 'regDate'| dateFormat 'YYYY-MM-DD'}}</td>
+                                </tr>
+                            {{/each}}
+                            </tbody> 
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="c-news" id="c-news">
+                
+                <div class="c-news-nav">
+                    {{each news.newsNav}}
+                    <span class="c-news-list">{{$value.name}}</span>
+                    {{/each}}
+                    <a href="/article" class="c-news-more">更多资讯+</a>
+                   <!--  <span class="c-news-list">知产动态</span>
+                    <span class="c-news-list">科技前沿</span>
+                    <span class="c-news-list">知产问答</span> -->
+                </div>
+                <div class="c-news-content">
+                    {{each news.dynamics}}
+                    <div class="c-news-item">
+                        <div class="c-news-left">
+                            <ul>
+                                {{each $value val i}}
+                                {{if i<4}}
+                                <li class="c-news-pic">
+                                    <a href="/article/{{val.id}}" class="c-news-link">
+                                        <img src="http://lorempixel.com/640/480/people" alt="" class="c-news-img">
+                                        <div class="c-news-imgwords">{{val.title}}</div>
+                                    </a>
+                                </li>
+                                {{/if}}
+                                {{/each}}
+                            </ul>
+                        </div>
+                        <div class="c-news-right">
+                            <ul class="c-news-words">
+
+                                {{each $value val i}}
+                                {{if i<10}}
+                                
+                                <li class="c-news-word">
+                                    <a href="/article/{{val.id}}">{{val.title}}</a>
+                                </li>
+                                
+                                {{/if}}
+                                {{/each}}
+                            </ul>
+                            <ul class="c-news-words">
+                                {{each $value val i}}
+                                {{if i>=10}}
+                                
+                                <li class="c-news-word">
+                                    <a href="/article/{{val.id}}">{{val.title}}</a>
+                                </li>
+                                
+                                {{/if}}
+                                {{/each}}
+                            </ul>
+                        </div>
+                    </div>
+                    {{/each}}
+                </div>
+                
+            </div>
+        </div>
+       <!--  <tq-login v-bind:action="action" v-bind:clause-address="clauseAddress" v-bind:qrcode-action="qrcodeAction" v-bind:msg-code-action="msgCodeAction" v-bind:img-code-action="imgCodeAction"></tq-login> -->
+        <tq-gotop></tq-gotop>
+    </div>
+    {{include "./common/footer"}}
+</body>
+</html>

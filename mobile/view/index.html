@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>淘权网</title>
+</head>
+<body>
+    <div class="statusbar-overlay"></div>
+    <div class="views">
+        <div class="view view-main">
+            <div class="navbar">
+                <div class="navbar-inner">
+                    <div class="center sliding">淘权网</div>
+                </div>
+            </div>
+            <div class="pages navbar-through toolbar-through">
+                <div class="page no-navbar" data-page="index">
+                    <div id="indexPageContent" class="page-content">
+
+                    </div>
+                    <script id="indexPageTemplate" type="text/template7">
+                        <div class="c-loading">{{title}}</div>
+                    </script>
+                </div>
+            </div>
+            <div class="toolbar tabbar tabbar-labels-through c-toolbar">
+                <div class="toolbar-inner">
+                    <a id="tabLink1" href="#tab_patent" class="tab-link active">
+                        <i class="fa fa-book"></i>
+                        <span class="tabbar-label">专利</span>
+                    </a>
+                    <a href="#tab_trademark" class="tab-link">
+                        <i class="fa fa-bandcamp"></i>
+                        <span class="tabbar-label">商标</span>
+                    </a>
+                </div>
+            </div>
+            <!--空tab仅供show事件使用-->
+            <div class="tabs">
+                <div id="tab_patent" class="tab active"></div>
+                <div id="tab_trademark" class="tab"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

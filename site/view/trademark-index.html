@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>商标列表-淘权网</title>
+</head>
+<body>
+    {{include "./common/header"}}
+    <div class="c-main" id="trademark-index">
+        <div class="c-search">
+            <div class="container">
+                <tq-search v-bind:action="action" v-bind:action-list="actionList" v-bind:search-address="searchAddress" v-bind:is-need-hot="isNeedHot" v-bind:opt-list="optList" >
+                </tq-search>
+            </div>
+        </div>
+        <div class="c-item-filter" id="item-filter">
+            <div class="container">
+                <div class="c-item-crumbs">
+                    <ul class="c-crumbsNav">
+                        <li>全部结果</li>
+                        <li class="c-crumbsNav-list">
+                            <a href="/trademark">商标转让</a>
+                            <span class="c-crumbsNav-close">×</span>
+                        </li>
+                    </ul>
+                    <a href="/trademark" class="c-crumbsNav-empty">清空筛选</a>
+                </div>
+                <div class="c-item-content">
+                    <table cellpadding="0" cellspacing="0">
+                        <tr>
+                            <th>行业分类</th>
+                            <td>
+                                <a href="">不限</a>
+                                {{each trademarkClassesTree}}
+                                <a data-querykey="item_class_id" data-queryvalue="{{$value.id}}" href="">{{$value.name}}</a>
+                                {{/each}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>商标类型</th>
+                            <td>
+                                <a href="">不限</a>
+                                <a data-querykey="attributes:type" data-queryvalue="0" href="#">文字商标</a>
+                                <a data-querykey="attributes:type" data-queryvalue="1" href="#">图形商标</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>注册日期</th>
+                            <td>
+                                <a  href="">不限</a>
+                                <a data-querykey="attributes:regDate" data-queryvalue="1" href="">一天内</a>
+                                <a data-querykey="attributes:regDate" data-queryvalue="2" href="">两天内</a>
+                                <a data-querykey="attributes:regDate" data-queryvalue="7" href="">一周内</a>
+                                <a data-querykey="attributes:regDate" data-queryvalue="30" href="">一月内</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>价格范围</th>
+                            <td>
+                                <a href="">不限</a>
+                                <a data-querykey="price" data-queryvalue="[0,1000]" href="">1000以下</a>
+                                <a data-querykey="price" data-queryvalue="[1001,2000]" href="">1000-2000</a>
+                                <a data-querykey="price" data-queryvalue="[2001,3000]" href="">2000-3000</a>
+                                <a data-querykey="price" data-queryvalue="[3001,5000]" href="">3000-5000</a>
+                                <a data-querykey="price" data-queryvalue="[5001,10000]" href="">5000-10000</a>
+                                <a data-querykey="price" data-queryvalue="[10001,50000]" href="">10000-50000</a>
+                                <a data-querykey="price" data-queryvalue=">50000" href="">50000以上</a>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="c-item-list">
+            <div class="container">
+                <div class="c-item-title">
+                    <h3>商标转让</h3>
+                    <span>行业分类：{{item_class_id|valueIDQueryName trademarkClassesTree}}</span>
+                    <span>共有{{totalCount}}件</span>
+                </div>
+                <div class="c-item-sidebar">
+                    <div class="c-item-tit">
+                        <h3>热门推荐</h3>
+                    </div>
+                    {{each trademarkHotList}}
+                    <div class="c-item-hot">
+                        <a href="/trademark/{{$value.id}}">
+                            <img src="http://static.taoquanw.com/upload/shop/common/05337302323403315_240.png" class="c-item-img"></img>
+                            <p class="c-item-price">&yen;{{$value.price}}</p>
+                            <p class="c-item-describe">{{$value.name}}</p>
+                        </a>
+                    </div>
+                    {{/each}}
+                </div>
+                <div class="c-item-main" id="item-main">
+                    {{if trademarkList.length>0}}
+                    <ul>
+                        {{each trademarkList}}
+                        <li>
+                            <div class="c-item-picture">
+                                <a href="/trademark/{{$value.id}}">
+                                    <img src="http://static.taoquanw.com/upload/shop/common/05337302323403315_240.png"/>
+                                </a>
+                            </div>
+                            <div class="c-item-text">
+                                <h5><a href="/trademark/{{$value.id}}">{{$value.name}}</a></h5>
+                                <p>{{$value.item_class_id|valueIDQueryName trademarkClassesTree}}</p>
+                                <p class="c-item-price">&yen;{{$value.price}}</p>
+                                <p class="c-item-info">{{$value.description}}核准商品：服装,婴儿全套衣,摔跤服,足球鞋,高统靴,风帽(服装),袜,手套(服装),领带,皮带(服饰用)</p>
+                            </div>
+                        </li>
+                        {{/each}}
+                    </ul>
+                    <div class="c-item-loading">
+                        <p>正在加载中。。。</p>
+                    </div>
+                    {{else}}
+                        <p class="c-item-empty">你要的分类商标我们在火热添加中...</p>
+                    {{/if}}
+                </div>
+            </div>
+        </div>
+        <!-- {{@pagination}} -->
+        <tq-gotop></tq-gotop>
+    </div>
+    {{include "./common/footer"}}
+</body>
+</html>

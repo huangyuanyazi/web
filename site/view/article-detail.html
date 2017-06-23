@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>文章详情</title>
+</head>
+<body>
+{{include './common/header'}}
+<div class="c-main c-article-detail">
+	<div class="container" id="c-detail-content">
+
+		<ul class="c-crumbsNav">
+			<li class="c-crumbsNav-list"><a href="/">首页</a></li>
+			<li>></li>
+			<li class="c-crumbsNav-list"><a href="/article?article_category_id={{articleContent.article_category_id}}">{{articleContent.article_category_id |valueIDQueryName articleClassify}}</a></li>
+			<li>></li>
+			<li class="c-crumbsNav-list">{{articleContent.title}}</li>
+		</ul>
+		<div class="c-detail-left">
+			<div class="c-detail-main">
+				<div class="c-detail-head">
+					<h3>{{articleContent.title}}</h3>
+					<p class="c-detail-time"><span>阅读{{articleContent.hits}}次</span><span>{{articleContent.created_at| dateFormat 'YYYY-MM-DD HH:mm'}}</span></p>
+				</div>
+				<div class="c-detail-content">
+					{{@articleContent.content}}
+				</div>
+				{{if articleContent.source!=null}}
+				<p class="c-article-source">{{articleContent.source}}</p>
+				{{/if}}
+				<div class="c-detail-footer">
+					<span>
+						上一篇：
+						{{if articlePrev}}
+						<a href="/article/{{articlePrev.id}}">{{articlePrev.title}}</a>
+						{{else}}
+						<i>暂无</i>
+						{{/if}}
+					</span>
+					<span>
+						下一篇：
+						{{if articleNext}}
+							<a href="/article/{{articleNext.id}}">{{articleNext.title}}</a>
+						{{else}}
+							<i >暂无</i>
+						{{/if}}
+					</span>
+				</div>
+			</div>	
+		</div>
+		<div class="c-detail-right">
+			<div class="c-detail-classification">
+				<div class="c-detail-tit">
+					<h3>文章分类</h3>
+				</div>
+				<ul class="c-detail-main">
+					<li><a href="#">商城公告</a></li>
+					<li><a href="/article?article_category_id=182">知产动态</a></li>
+					<li><a href="/article?article_category_id=183">科技前沿</a></li>
+					<li><a href="/article?article_category_id=184">资产问答</a></li>
+				</ul>
+			</div>
+			<div class="c-detail-host">
+				<div class="c-detail-tit">
+					<h3>最热文章</h3>
+				</div>
+				<ul class="c-detail-main">
+					{{each articleHot}}
+						<li><a href="/article/{{$value.id}}">{{$value.title}}</a></li>
+					 {{/each}}
+					<!--  <li><a href="">知产动态</a></li>
+					<li><a href="">科技前沿</a></li>
+					<li><a href="">资产问答</a></li> -->
+				</ul>
+			</div>
+			<div class="c-detail-new">
+				<div class="c-detail-tit">
+					<h3>最新文章</h3>
+				</div>
+				<ul class="c-detail-main">
+					{{each articleNew}}
+						<li><a href="/article/{{$value.id}}">{{$value.title}}</a></li>
+					{{/each}}
+					<!--  <li><a href="">商城公告</a></li>
+					<li><a href="">知产动态</a></li>
+					<li><a href="">科技前沿</a></li>
+					<li><a href="">资产问答</a></li>  -->
+				</ul>
+			</div>
+		</div>
+
+	</div>
+</div>
+{{include './common/footer'}}
+<script>
+	window._bd_share_config = {
+		"common": {
+			"bdSnsKey": {},
+			"bdText": "",
+			"bdMini": "2",
+			"bdMiniList": false,
+			"bdPic": "",
+			"bdStyle": "0",
+			"bdSize": "16"
+		},
+		"slide": {
+			"type": "slide",
+			"bdImg": "4",
+			"bdPos": "right",
+			"bdTop": "100"
+		},
+		"image": {
+			"viewList": ["tsina", "qzone", "weixin", "douban", "mshare"],
+			"viewText": "分享到：",
+			"viewSize": "16"
+		},
+		"selectShare": {
+			"bdContainerClass": null,
+			"bdSelectMiniList": ["tsina", "qzone", "weixin", "douban", "mshare"]
+		}
+	};
+	with(document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)]; 
+
+</script>
+</body>
+</html>

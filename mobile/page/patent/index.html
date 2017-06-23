@@ -1,0 +1,112 @@
+<div class="navbar c-no-after">
+    <div class="navbar-inner">
+        <div class="left">
+            专利
+        </div>
+        <div class="center sliding c-virtualSearch">
+            <a href="page/patent/search.html">
+                <i class="fa fa-search">
+
+                </i>
+                <span>
+					输入您想要的内容
+				</span>
+            </a>
+        </div>
+    </div>
+</div>
+<div class="page" data-page="patentPage" id="patentPage">
+
+    <div class="page-content infinite-scroll infinite-scroll-bottom" id="patentPageContent">
+        <div class="c-filter">
+            <div class="c-patentType" id="patentTypeFilter"><span class="">专利类型</span></div>
+            <div class="c-patentStatus" id="patentStatusFilter"><span class="">专利状态</span></div>
+            <div class="c-priceRange" id="patentPriceRangeFilter"><span class="">价格范围</span></div>
+            <div class="c-sortMethod" id="patentSortMethodFilter"><span class="">排序方式</span></div>
+        </div>
+        <div class="c-patentType-eject" id="patentTypeEject">
+            <div class="list-block c-margin0">
+                <ul id="patentTypeUl">
+
+                </ul>
+            </div>
+        </div>
+        <div class="c-patentStatus-eject" id="patentStatusEject">
+            <div class="list-block c-margin0">
+                <ul id="patentStatusUl">
+
+                </ul>
+            </div>
+        </div>
+        <div class="c-priceRange-eject" id="patentPriceRangeEject">
+            <div class="list-block c-margin0">
+                <ul id="priceRangeUl">
+
+                </ul>
+            </div>
+        </div>
+        <div class="c-sortMethod-eject" id="patentSortMethodEject">
+            <div class="list-block c-margin0">
+                <ul id="sortMethodUl">
+
+                </ul>
+            </div>
+        </div>
+
+        <div class="c-margin60"></div>
+        <div class="list-block cards-list ">
+            <ul class="" id="patentUl">
+            </ul>
+        </div>
+        <div class="infinite-scroll-preloader" id="patentInfinitePreloader">
+            <div class="preloader"></div>
+        </div>
+
+    </div>
+    <script id="patentTemplate" type="text/template7">
+        {{#each patents}}
+        <li class="card">
+            <a class="item-link" href="page/patent/detail.html?id={{id}}">
+                <div class="card-header"><span> {{name}}</span><span>{{price}}</span>
+                </div>
+                <div class="card-content">
+                    <div class="card-content-inner">
+                        <p>{{description}}
+                        </p>
+                        <p class="c-attributes">
+
+                            类型:{{json attributes key="type"}}&nbsp;
+                            状态:{{json attributes key="status"}}&nbsp;
+                            专利号:{{json attributes key="sn"}}&nbsp;
+                            授权截止日期:{{json attributes key="deadline"}}
+
+                        </p>
+                        <p class="c-keywords">
+                            关键词：{{joinString keywords delimiter=","}}
+                        </p>
+                        <p>
+                            发布时间：{{shelved_at}}&nbsp;点击量：{{follow}}
+                        </p>
+                    </div>
+                </div>
+                <div class="card-footer">id:{{id}}
+                </div>
+            </a>
+        </li>
+        {{/each}}
+    </script>
+    <script type="text/template7" id="patentEjectTemplate">
+        {{#each ejectTitles}}
+        <li class="c-patentEjectItem" data-filter-id="{{this.filterId}}" data-filter-selector="{{this.filterSelector}}" data-filter-data="{{this.filterData}}" data-filter-show="{{this.filterShow}}">
+            <div class="item-content">
+                <div class="item-inner">
+                    <div class="item-title">
+                        {{this.ejectTitle}}
+                    </div>
+                </div>
+            </div>
+        </li>
+        {{/each}}
+    </script>
+
+</div>

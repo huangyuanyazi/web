@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>专利列表-淘权网</title>
+</head>
+<body>
+    {{include "./common/header"}}
+    <!-- {{currentTime | dateFormat 'YYYY/MM/DD HH:mm'}} -->
+    <div class="c-main" id="patent-index">
+        <div class="c-search">
+            <div class="container">
+                <tq-search v-bind:action="action" v-bind:action-list="actionList" v-bind:search-address="searchAddress" v-bind:is-need-hot="isNeedHot" v-bind:opt-list="optList">
+                </tq-search>
+            </div>
+        </div>
+        <div class="c-item-filter" id="item-filter">
+            <div class="container">
+                <div class="c-item-crumbs">
+                    <ul class="c-crumbsNav">
+                        <li>全部结果</li>
+                        <li class="c-crumbsNav-list">
+                            <a href="/patent">专利转让</a>
+                            <span class="c-crumbsNav-close">×</span>
+                        </li>
+                    </ul>
+                    <a href="/patent" class="c-crumbsNav-empty">清空筛选</a>
+                </div>
+                <!-- <div class="c-title">专利筛选</div> -->
+                <div class="c-item-content">
+                    <table cellpadding="0" cellspacing="0">
+                        <tr>
+                            <th>专利类型</th>
+                            <td>
+                                <a href="">不限</a>
+                                <a data-querykey="attributes->type" data-queryvalue="0" href="">发明</a>
+                                <a data-querykey="attributes->type" data-queryvalue="1" href="">实用新型</a>
+                                <a data-querykey="attributes->type" data-queryvalue="2" href="">外观设计</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>专利状态</th>
+                            <td>
+                                <a href="">不限</a>
+                                <a data-querykey="attributes->status" data-queryvalue="0" href="">授权未缴费</a>
+                                <a data-querykey="attributes->status" data-queryvalue="1" href="">已下证</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>授权截止时间</th>
+                            <td class="c-item-time">
+                                <a  href="">不限</a>
+                                <a data-querykey="attributes->deadline" data-queryvalue="1" href="">一天内</a>
+                                <a data-querykey="attributes->deadline" data-queryvalue="2" href="">两天内</a>
+                                <a data-querykey="attributes->deadline" data-queryvalue="7" href="">一周内</a>
+                                <a data-querykey="attributes->deadline" data-queryvalue="30" href="">一月内</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>适用行业</th>
+                            <td>
+                                <a href="">不限</a>
+                                {{each patentClassesTree}}
+                                    <a data-querykey="item_class_id" data-queryvalue="{{$value.id}}" href="">{{$value.name}}</a>
+                                {{/each}}
+                                <!-- <a href="">不限</a>
+                                <a href="">人类生活必需</a>
+                                <a href="">作业运输</a>
+                                <a href="">化学冶金</a>
+                                <a href="">纺织造纸</a>
+                                <a href="">固定建筑物</a>
+                                <a href="">机械工程武器</a>
+                                <a href="">物理</a>
+                                <a href="">电学</a> -->
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>价格范围</th>
+                            <td>
+                                <a href="">不限</a>
+                                <a data-querykey="price" data-queryvalue="[0,1000]" href="">1000以下</a>
+                                <a data-querykey="price" data-queryvalue="[1001,2000]" href="">1000-2000</a>
+                                <a data-querykey="price" data-queryvalue="[2001,3000]" href="">2000-3000</a>
+                                <a data-querykey="price" data-queryvalue="[3001,5000]" href="">3000-5000</a>
+                                <a data-querykey="price" data-queryvalue="[5001,10000]" href="">5000-10000</a>
+                                <a data-querykey="price" data-queryvalue="[10001,50000]" href="">10000-50000</a>
+                                <a data-querykey="price" data-queryvalue=">50000" href="">50000以上</a>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="c-item-list">
+            <div class="container">
+                <div class="c-item-title">
+                    <h3>专利转让</h3>
+                    <span>适用行业：{{item_class_id|valueIDQueryName patentClassesTree}}</span>
+                    <span>共有{{totalCount}}件</span>
+                </div>
+                <div class="c-item-sidebar">
+                    <div class="c-item-tit">
+                        <h3>热门推荐</h3>
+                    </div>
+                    {{each patentHotList}}
+                    <div class="c-item-hot">
+                        <a href="/patent/{{$value.id}}">
+                            <img src="http://static.taoquanw.com/upload/shop/common/05337302323403315_360.png" class="c-item-img">
+                            <p class="c-item-price">&yen;{{$value.price}}</p>
+                            <p class="c-item-describe">{{$value.name}}</p>
+                        </a>
+                    </div>
+                    {{/each}}
+                </div>
+                <div class="c-item-main">
+                    <table cellspacing="0" cellpadding="0">
+                        <thead>
+                            <tr>
+                                <th class="keyword" width="100">关键词</th>
+                                <th class="name">专利名称</th>
+                                <th class="serial" width="140">专利号</th>
+                                <th class="cate" width="120">行业分类</th>
+                                <th class="attr_1" width="100">专利类型</th>
+                                <th class="attr_2" width="100">专利状态</th>
+                                <th class="exp" width="120">缴费截止日期</th>
+                                <th class="price" width="80">价格</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{each patentList}}
+                            <tr>
+                                <td class="keyword">
+                                {{if $value.keywords}}
+                                    <a href="/patent?keywords=~{{$value.keywords| valueQuery '0'}}">{{$value.keywords| valueQuery "0"}}</a>
+                                {{else}}
+                                    <a href="/patent?keywords=~{{$value.keywords}}">{{$value.keywords}}</a>
+                                {{/if}}
+                                </td>
+                                <td class="name">
+                                    <a href="/patent/{{$value.id}}" title="{{$value.description}}">{{$value.name}}</a>
+                                </td>
+                                <td class="serial">{{$value.attributes | valueQuery 'sn'}}</td>
+                                <td class="cate">
+                                    <a href="/patent?item_class_id={{$value.item_class_id}}">{{$value.item_class_id|valueIDQueryName patentClassesTree}}</a>
+                                </td>
+                                <td class="attr_1">{{$value.attributes | valueLabelQuery 'type' patentClasses}}</td>
+                                <td class="attr_2">{{$value.attributes | valueLabelQuery 'status' patentClasses}}</td>
+                                <td class="exp">{{$value.attributes| valueQuery 'deadline'| dateFormat 'YYYY-MM-DD'}}</td>
+                                <td class="price">&yen;{{$value.price}}</td>
+                            </tr>
+                            {{/each}}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        {{@pagination}}
+        <tq-gotop></tq-gotop>
+    </div>
+    {{include "./common/footer"}}
+</body>
+</html>

@@ -1,0 +1,16 @@
+{
+  "watch": [
+    "site/route",
+    "admin/route",
+    "patent/route",
+    "config",
+    "mock"
+  ],
+  "ignore": [
+    "mock/db.json"
+  ],
+  "ext": "js html json",
+  "env": {
+    "NODE_ENV": "development"
+  }
+}

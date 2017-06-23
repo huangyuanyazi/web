@@ -1,0 +1,20 @@
+{
+  "apps": [
+    {
+      "name": "patent",
+      "script": "/www/web/patent/app.js",
+      "watch": ["/www/web/api", "/www/web/patent", "/www/web/config", "/www/web/libs"],
+      "watch_options": {
+        "usePolling": true
+      },
+      "ignore_watch" : ["node_modules", "client", "logs", ".git", ".idea", "mock"],
+      "max_memory_restart": "100M",
+      "log_date_format"  : "YYYY-MM-DD HH:mm:SS",
+      "error_file" : "/www/web/logs/patent-err.log",
+      "pid_file"   : "/www/web/logs/patent.pid",
+      "env": {
+        "NODE_ENV": "prod"
+      }
+    }
+  ]
+}

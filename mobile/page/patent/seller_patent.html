@@ -1,0 +1,202 @@
+<div class="navbar">
+	<div class="navbar-inner">
+		<div class="left">
+			<a href="page/patent/detail.html" class="back"><i class="icon icon-back"></i></a>
+		</div>
+		<div class="center" id='seller_company'>
+		</div>
+		<div class="right">
+			<a href="#" class="" id="seller_patent_share">分享</a>
+		</div>
+		<div class="subnavbar">
+			<!-- Sub navbar content, for example tabs buttons -->
+			<div class="buttons-row">
+				<a href="#tab_seller_patent" class="button active tab-link" id="button1">专利转让</a>
+				<a href="#tab_seller_trademark" class="button tab-link" id="button2">商标转让</a>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="page  no-toolbar" data-page="page_seller_detail">
+	<!--专利类型-->
+	
+	<div class="page-content infinite-scroll infinite-scroll-bottom ">
+		
+		<div class="tabs c-margin100">
+			<div class="tab active" id="tab_seller_patent">
+				<div class='c-filter'>
+					<div class='c-patentType' id='patentType'><span class=''>专利类型</span></div>
+					<div class='c-patentStatus' id='patentStatus'><span class=''>专利状态</span></div>
+					<div class='c-priceRange' id='patentPrice'><span class=''>价格范围</span></div>
+					<div class='c-sortMethod' id='patentSort'><span class=''>排序方式</span></div>
+				</div>
+				
+				<div class='c-patentType-eject'>
+					<div class='list-block c-margin0'>
+						<ul id='patentType_ul'>
+						
+						</ul>
+					</div>
+				</div>
+				<div class='c-patentStatus-eject'>
+					<div class='list-block c-margin0'>
+						<ul id='patentStatus_ul'>
+						
+						</ul>
+					</div>
+				</div>
+				<div class='c-priceRange-eject'>
+					<div class='list-block c-margin0'>
+						<ul id='priceRange_ul'>
+						
+						</ul>
+					</div>
+				</div>
+				<div class='c-sortMethod-eject'>
+					<div class='list-block c-margin0'>
+						<ul id='sortMethod_ul'>
+						
+						</ul>
+					</div>
+				</div>
+				
+				<div class="c-margin60"></div>
+				<div class="list-block cards-list ">
+					<ul class="" id='patent_ul'>
+					
+					</ul>
+				</div>
+				<div class="list-block cards-list">
+					<ul id='seller_patent_ul'>
+					</ul>
+				</div>
+				<div class="infinite-scroll-preloader">
+					<div class="preloader"></div>
+				</div>
+			</div>
+			<div class="tab" id="tab_seller_trademark">
+				<div class='c-filter'>
+					<div class='c-patentType'><span class=''>商标分类</span></div>
+					<div class='c-patentStatus'><span class=''>商标类型</span></div>
+					<div class='c-priceRange'><span class=''>价格范围</span></div>
+					<div class='c-sortMethod'><span class=''>排序方式</span></div>
+				</div>
+				
+				<div class='c-patentType-eject'>
+					<div data-pagination=".swiper-pagination-h" class="swiper-container swiper-init">
+						<div class="swiper-pagination swiper-pagination-h"></div>
+						<div class="swiper-wrapper">
+							<div class="swiper-slide">
+								<div class="row no-gutter" id='trademark_classify_ul_part1'>
+								
+								</div>
+							</div>
+							<div class="swiper-slide">
+								<div class="row no-gutter" id='trademark_classify_ul_part2'>
+								
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class='c-patentStatus-eject'>
+					<div class='list-block c-margin0'>
+						<ul id='trademark_type_ul'>
+						
+						</ul>
+					</div>
+				</div>
+				<div class='c-priceRange-eject'>
+					<div class='list-block c-margin0'>
+						<ul id='trademark_priceRange_ul'>
+						
+						</ul>
+					</div>
+				</div>
+				<div class='c-sortMethod-eject'>
+					<div class='list-block c-margin0'>
+						<ul id='trademark_sortMethod_ul'>
+						
+						</ul>
+					</div>
+				</div>
+				<div class="c-margin60"></div>
+				<div class="list-block cards-list ">
+					<ul class="" id='trademark_ul'>
+					
+					</ul>
+				</div>
+				<div class="infinite-scroll-preloader">
+					<div class="preloader"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script id="seller_patent_template" type="text/template7">
+		{{#each patents}}
+		<li class="card">
+			<a class="item-link" href='page/patent/detail.html?id={{id}}'>
+				<div class="card-header"><span> {{patent_header}}</span><span
+						id="patent_price1">{{id}}</span>
+				</div>
+				<div class="card-content">
+					<div class="card-content-inner">
+						<p>{{patent_describ}}
+						</p>
+						<p>
+							{{patent_type}}
+						</p>
+					</div>
+				</div>
+				<div class="card-footer">{{company}}
+				</div>
+			</a>
+		</li>
+		{{/each}}
+	</script>
+	<script type='text/template7' id='ejectTemplate'>
+		{{#each eject_titles}}
+		<li>
+			<div class="item-content">
+				<div class="item-inner">
+					<div class="item-title">
+						{{this.eject_title}}
+					</div>
+				</div>
+			</div>
+		</li>
+		{{/each}}
+	</script>
+	<script type='text/template' id='ejectSortTemplate'>
+		{{#each eject_titles}}
+		<div class="col-50">{{sort_name}}</div>
+		{{/each}}
+	</script>
+	<script id="trademark_template" type="text/template7">
+		{{#each trademark}}
+		<li class="card c-tm-card">
+			<a class="item-link" href='page/trademark/detail.html?id={{id}}'>
+				<div class="card-content">
+					<div class="card-content-inner">
+						<div style=''>
+						</div>
+						<div style=''>
+							<span>{{id}}</span>
+							<p>{{trademark_header}}</p>
+							<p>{{trademark_sort}}&nbsp;&nbsp;&nbsp;注册于{{trademark_registDate}}</p>
+							<p style=''>
+								{{trademark_describ}}
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class='card-footer'>
+					{{company}}
+				</div>
+			</a>
+		</li>
+		{{/each}}
+	</script>
+</div>
+		

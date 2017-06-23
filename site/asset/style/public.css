@@ -1,0 +1,22 @@
+body,ul,li,p,h1,h2,h3,h4,h5,h6,img,br,hr,table,tr,td,dl,dt,dd,form,input,button {
+  margin: 0;
+  padding: 0;
+}
+
+ul,li{
+  list-style-type: none;
+}
+img,input{
+  border: none;
+}
+img{
+  max-width: 100%;
+  max-height: 100%;
+}
+a,a:focus,a:hover{
+  outline: none;
+  text-decoration: none;
+}
+textarea:focus,input:focus ,button:focus,select,select:focus,option,option:focus{
+  outline: none;
+}

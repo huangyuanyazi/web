@@ -1,0 +1,20 @@
+{
+  "apps": [
+    {
+      "name": "mobile",
+      "script": "/www/web/mobile/app.js",
+      "watch": ["/www/web/api", "/www/web/mobile", "/www/web/config", "/www/web/libs"],
+      "watch_options": {
+        "usePolling": true
+      },
+      "ignore_watch" : ["node_modules", "client", "logs", ".git", ".idea", "mock"],
+      "max_memory_restart": "100M",
+      "log_date_format"  : "YYYY-MM-DD HH:mm:SS",
+      "error_file" : "/www/web/logs/mobile-err.log",
+      "pid_file"   : "/www/web/logs/mobile.pid",
+      "env": {
+        "NODE_ENV": "prod"
+      }
+    }
+  ]
+}

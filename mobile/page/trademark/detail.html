@@ -1,0 +1,84 @@
+<!-- Views-->
+<div class="navbar">
+	<div class="navbar-inner">
+		<div class="left">
+			<a href="page/trademark/index.html" class="link icon-only"><i class="icon icon-back"></i></a>
+		</div>
+		<div class="center">
+			商标详情
+		</div>
+		<div class="right">
+			<a href="javascript:void(0)" id="trademarkDetailShare">分享</a>
+		</div>
+	</div>
+</div>
+
+<div class="page no-toolbar" data-page="trademarkDetail" id='trademarkDetail'>
+	<div class="page-content" id='trademarkDetailContent'>
+		<script id='trademarkDetailTemplate' type='text/template7'>
+			{{#trademark}}
+			<div class='content-block '>
+				<div class='card'>
+					<div class='card-content'>
+						<div class='card-content-inner'>
+						<img class="c-large-background" src="http://img.tqtest.com{{jsonObj images}}">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="content-block">
+				<div class="card">
+					<div class="card-header">
+						{{name}}
+					</div>
+					<div class="card-content">
+						<div class="card-content-inner">
+							<span>{{id}}</span>
+							<p>{{name}}
+							</p>
+							<p>&nbsp;&nbsp; 注册于{{json attributes key="regDate"}}
+							</p>
+							<p>
+								{{description}}
+							</p>
+						</div>
+					</div>
+					<!--<div class="card-footer"></div>-->
+				</div>
+			</div>
+			<div class="content-block">
+				<div class="card">
+					<div class="card-header">
+						商标描述
+					</div>
+					<div class="card-content">
+						<div class="card-content-inner">
+							{{description}}
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--<div class="content-block">-->
+			<!--<div class="card">-->
+			<!--<div class="card-header">-->
+			<!--商标发布人-->
+			<!--</div>-->
+			<!--<div class="card-content">-->
+			<!--<div class="card-content-inner">-->
+			<!--<p>{{company}}</p>-->
+			<!--<p><a href="page/patent/seller_patent.html?company={{company}}" class="">他还有{{trademark_count}}个专利正在转让-->
+			<!--&gt;</a></p>-->
+			<!--</div>-->
+			<!--</div>-->
+			<!---->
+			<!--</div>-->
+			<!--</div>-->
+			<input style="display: none" value={{name}} id="trademarkCustomerServiceInfo">
+			{{/trademark}}
+		</script>
+	</div>
+	<p class="buttons-row c-patent-trademark-call">
+		<a href="#" class="button button-big button-fill" id="trademarkCustomerServiceButton">联系客服</a>
+		<a href="#" class="button button-big button-fill color-red" id="trademarkOpenAppButton">打开应用</a>
+	</p>
+</div>
